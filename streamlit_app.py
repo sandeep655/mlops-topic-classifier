@@ -6,7 +6,7 @@ model = joblib.load("models/logistic_model.pkl")
 vectorizer = joblib.load("models/vectorizer.pkl")
 
 st.title("Topic Classification - Computer Hardware vs Baseball")
-user_input = st.text_area("Enter a sentence:")
+user_input = st.text_area("Enter a sentence['there is issue in my RAM'] AND please enable score:")
 show_score = st.checkbox("Show confidence score")
 
 # Add a button to trigger predictions

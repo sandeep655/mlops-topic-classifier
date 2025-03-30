@@ -48,8 +48,15 @@ jobs:
       run: docker build -t topic-api .
 
     - name: Deploy to Render
-      if: success() && github.ref == 'refs/heads/main' && secrets.RENDER_DEPLOY_HOOK != ''
+      if: success() && github.ref == 'refs/heads/main'
+      env:
+        DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
       run: |
-        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
-        echo " Deployment triggered to Render (only after all tests passed)"
+        if [ -z "$DEPLOY_HOOK" ]; then
+          echo "🔒 RENDER_DEPLOY_HOOK not set — skipping deploy."
+        else
+          curl -X POST $DEPLOY_HOOK
+          echo "🚀 Deployment triggered on Render"
+        fi
+
 

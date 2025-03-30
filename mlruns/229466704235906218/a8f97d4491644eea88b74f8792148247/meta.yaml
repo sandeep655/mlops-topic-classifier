@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/sandeepkumar/NCI/AI/Moodle/Sem2/Engineering%20and%20Evaluating%20Artificial%20Intelligence/DevOps/mlops_sentiment_pipeline/mlruns/229466704235906218/a8f97d4491644eea88b74f8792148247/artifacts
+end_time: 1743297383692
+entry_point_name: ''
+experiment_id: '229466704235906218'
+lifecycle_stage: active
+run_id: a8f97d4491644eea88b74f8792148247
+run_name: bold-bear-899
+run_uuid: a8f97d4491644eea88b74f8792148247
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743297366437
+status: 4
+tags: []
+user_id: sandeepkumar

@@ -1,0 +1,6 @@
+artifact_location: file:///Users/sandeepkumar/NCI/AI/Moodle/Sem2/Engineering%20and%20Evaluating%20Artificial%20Intelligence/DevOps/mlops_sentiment_pipeline/mlruns/229466704235906218
+creation_time: 1743297366374
+experiment_id: '229466704235906218'
+last_update_time: 1743297366374
+lifecycle_stage: active
+name: twitter-sentiment-logreg

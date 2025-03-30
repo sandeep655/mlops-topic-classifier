@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/sandeepkumar/NCI/AI/Moodle/Sem2/Engineering%20and%20Evaluating%20Artificial%20Intelligence/DevOps/mlops_sentiment_pipeline/mlruns/409466864664235583/43ff1cb15b224e5d8204d544e1791f26/artifacts
+end_time: 1743297529800
+entry_point_name: ''
+experiment_id: '409466864664235583'
+lifecycle_stage: active
+run_id: 43ff1cb15b224e5d8204d544e1791f26
+run_name: luminous-toad-645
+run_uuid: 43ff1cb15b224e5d8204d544e1791f26
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743297528908
+status: 3
+tags: []
+user_id: sandeepkumar

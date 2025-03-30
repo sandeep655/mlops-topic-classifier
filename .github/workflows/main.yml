@@ -1,0 +1,42 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build-train-test-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.10
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirements.txt
+
+    - name: DVC Pull
+      run: |
+        sudo apt install -y git-lfs
+        dvc pull
+
+    - name: Train the model
+      run: python train.py
+
+    - name: Run FastAPI test
+      run: bash test.sh
+
+    - name: Build Docker image
+      run: docker build -t sentiment-api .
+
+    - name: Deploy to Render
+      if: github.ref == 'refs/heads/main'
+      run: |
+        curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}

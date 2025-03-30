@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/sandeepkumar/NCI/AI/Moodle/Sem2/Engineering%20and%20Evaluating%20Artificial%20Intelligence/DevOps/mlops_sentiment_pipeline/mlruns/229466704235906218/924718404c7046d8b0b1980e43ac906d/artifacts
+end_time: 1743297520548
+entry_point_name: ''
+experiment_id: '229466704235906218'
+lifecycle_stage: active
+run_id: 924718404c7046d8b0b1980e43ac906d
+run_name: flawless-dove-264
+run_uuid: 924718404c7046d8b0b1980e43ac906d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743297432662
+status: 4
+tags: []
+user_id: sandeepkumar

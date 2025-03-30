@@ -24,6 +24,13 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
+    - name: Debug train
+    run: echo "Training starting"
+
+    - name: Debug test
+      run: echo "Testing starting"
+
+
     - name: Train the model
       run: python train.py
 

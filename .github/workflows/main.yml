@@ -23,6 +23,8 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    - name: Set MLflow temp tracking URI
+      run: echo "MLFLOW_TRACKING_URI=file://$(mktemp -d)/mlruns" >> $GITHUB_ENV
 
     - name: Debug train
       run: echo "Training starting"

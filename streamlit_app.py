@@ -9,6 +9,7 @@ st.title("Topic Classification - Computer Hardware vs Baseball")
 user_input = st.text_area("Enter a sentence:")
 show_score = st.checkbox("Show confidence score")
 
+# Add a button to trigger prediction
 if st.button("Predict"):
     text_vector = vectorizer.transform([user_input])
     prediction = model.predict(text_vector)[0]

@@ -10,7 +10,7 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 
 mlflow.set_experiment("topic-classification-logreg")
 
-mlflow.set_tracking_uri(f"file://{tempfile.gettempdir()}/mlruns")
+# mlflow.set_tracking_uri(f"file://{tempfile.gettempdir()}/mlruns")
 
 
 with mlflow.start_run():

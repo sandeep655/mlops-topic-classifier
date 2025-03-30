@@ -1,20 +1,20 @@
+import os
 import streamlit as st
-import joblib
-import numpy as np
+import requests
 
-model = joblib.load("models/logistic_model.pkl")
-vectorizer = joblib.load("models/vectorizer.pkl")
+# Get API URL from environment variable (fallback to local)
+API_URL = os.getenv("API_URL", "http://localhost:8000/predict")
 
-st.title("Topic Classification - Computer Hardware vs Baseball")
-user_input = st.text_area("Enter a sentence:")
-show_score = st.checkbox("Show confidence score")
+st.title("Topic Classifier: Computer Hardware vs Baseball")
 
-# Add a button to trigger predictions
-if st.button("Predict"):
-    text_vector = vectorizer.transform([user_input])
-    prediction = model.predict(text_vector)[0]
-    proba = model.predict_proba(text_vector)[0]
-    label = "Baseball-related" if prediction == 1 else "Computer Hardware-related"
-    st.write(f"Prediction: {label}")
-    if show_score:
-        st.write(f"Confidence: {np.max(proba) * 100:.2f}%")
+text = st.text_area("Enter a sentence for classification:")
+if st.button("Classify"):
+    try:
+        response = requests.post(API_URL, json={"text": text})
+        if response.status_code == 200:
+            prediction = response.json().get("prediction")
+            st.success(f"Prediction: {prediction}")
+        else:
+            st.error("API Error: " + response.text)
+    except Exception as e:
+        st.error(f"Connection error: {e}")

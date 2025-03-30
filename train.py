@@ -1,6 +1,7 @@
 import os
 import joblib
 import mlflow
+import tempfile
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.datasets import fetch_20newsgroups
@@ -8,6 +9,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 
 mlflow.set_experiment("topic-classification-logreg")
+
+mlflow.set_tracking_uri(f"file://{tempfile.gettempdir()}/mlruns")
+
 
 with mlflow.start_run():
     categories = ['comp.sys.ibm.pc.hardware', 'rec.sport.baseball']

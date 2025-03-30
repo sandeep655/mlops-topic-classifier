@@ -25,7 +25,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Debug train
-    run: echo "Training starting"
+      run: echo "Training starting"
 
     - name: Debug test
       run: echo "Testing starting"

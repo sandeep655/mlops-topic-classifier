@@ -2,12 +2,15 @@ import os
 import streamlit as st
 import requests
 
-# Get API URL from environment variable (fallback to local)
-API_URL = os.getenv("API_URL", "http://localhost:8000/predict")
+# Require API_URL from environment
+API_URL = os.getenv("API_URL")
+if not API_URL:
+    st.error("API_URL environment variable is not set. Please configure it in Streamlit secrets or your environment.")
+    st.stop()
 
 st.title("Topic Classifier: Computer Hardware vs Baseball")
 
-text = st.text_area("Enter a sentence for classification:")
+text = st.text_area("Enter a sentence:")
 if st.button("Classify"):
     try:
         response = requests.post(API_URL, json={"text": text})

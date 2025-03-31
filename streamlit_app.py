@@ -8,7 +8,7 @@ if not API_URL:
     st.error("API_URL environment variable is not set. Please configure it in Streamlit secrets or your environment.")
     st.stop()
 
-st.title("Topic Classifier: Computer Hardware vs Baseball")
+st.title("Topic Classifier: Computer Hardware vs Baseballs")
 
 text = st.text_area("Enter a sentence below:")
 if st.button("Classify"):

@@ -1,0 +1,57 @@
+name: CI/CD Pipeline for Dev
+
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  build-train-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Set MLflow temp tracking URI
+      run: echo "MLFLOW_TRACKING_URI=file://$(mktemp -d)/mlruns" >> $GITHUB_ENV
+
+    - name: Debug train
+      run: echo "Training starting"
+
+    - name: Debug test
+      run: echo "Testing starting"
+
+    - name: Train the model
+      run: python train.py
+
+    - name: Start FastAPI server in background
+      run: |
+        nohup uvicorn app.main:app --host 0.0.0.0 --port 8000 > uvicorn.log 2>&1 &
+        sleep 5
+
+    - name: Run FastAPI test
+      run: bash test.sh
+
+    - name: Build Docker image
+      run: docker build -t topic-api .
+
+    - name: Auto-merge dev into main
+      if: success()
+      uses: devops-infra/action-pull-request@v0.5.4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        source_branch: dev
+        target_branch: main
+        title: "Auto-merge: CI passed on dev"
+        body: "Merging dev into main after successful CI."

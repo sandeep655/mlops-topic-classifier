@@ -10,7 +10,7 @@ if not API_URL:
 
 st.title("Topic Classifier: Computer Hardware vs Baseball")
 
-text = st.text_area("Enter a sentence below for prediction:")
+text = st.text_area("Enter a sentence below for predict:")
 if st.button("Classify"):
     try:
         response = requests.post(API_URL, json={"text": text})

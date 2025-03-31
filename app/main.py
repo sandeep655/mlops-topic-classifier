@@ -11,7 +11,7 @@ class InputText(BaseModel):
 
 @app.get("/")
 def root():
-    return {"message": "Topic Classifier is running!"}
+    return {"message": "Topic Classifier is runnings!"}
 
 @app.post("/predict")
 def predict_topic(input: InputText):

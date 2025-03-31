@@ -20,5 +20,5 @@ jobs:
             echo "🔒 RENDER_DEPLOY_HOOK not set — skipping deploy."
           else
             curl -X POST $DEPLOY_HOOK
-            echo "🚀 Deployment triggered on Render"
+            echo "Deployment triggered on Render"
           fi

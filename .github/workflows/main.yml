@@ -1,5 +1,5 @@
+# This workflow is triggered on every push to the main branch.
 name: Post-Merge Deployment
-
 on:
   push:
     branches: [main]

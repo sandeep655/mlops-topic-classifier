@@ -2,18 +2,20 @@ import os
 import joblib
 import mlflow
 import tempfile
+from datetime import datetime
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.datasets import fetch_20newsgroups
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, confusion_matrix
 
+run_name = f"logistic_reg{datetime.now().strftime('%Y-%m-%d_%H-%M')}"
 mlflow.set_experiment("topic-classification-logreg")
 
 # mlflow.set_tracking_uri(f"file://{tempfile.gettempdir()}/mlruns")
 
 
-with mlflow.start_run():
+with mlflow.start_run(run_name = run_name):
     categories = ['comp.sys.ibm.pc.hardware', 'rec.sport.baseball']
     data = fetch_20newsgroups(subset='train', categories=categories, remove=('headers', 'footers', 'quotes'))
     texts = data.data

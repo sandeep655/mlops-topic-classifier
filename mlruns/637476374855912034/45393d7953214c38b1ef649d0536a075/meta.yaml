@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/sandeepkumar/NCI/AI/Moodle/Sem2/Engineering%20and%20Evaluating%20Artificial%20Intelligence/DevOps/mlops_sentiment_pipeline/mlruns/637476374855912034/45393d7953214c38b1ef649d0536a075/artifacts
+end_time: 1743497222459
+entry_point_name: ''
+experiment_id: '637476374855912034'
+lifecycle_stage: active
+run_id: 45393d7953214c38b1ef649d0536a075
+run_name: logistic_reg2025-04-01_09-47
+run_uuid: 45393d7953214c38b1ef649d0536a075
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743497221546
+status: 3
+tags: []
+user_id: sandeepkumar

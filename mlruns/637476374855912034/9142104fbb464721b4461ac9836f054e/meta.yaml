@@ -1,0 +1,15 @@
+artifact_uri: file:///Users/sandeepkumar/NCI/AI/Moodle/Sem2/Engineering%20and%20Evaluating%20Artificial%20Intelligence/DevOps/mlops_sentiment_pipeline/mlruns/637476374855912034/9142104fbb464721b4461ac9836f054e/artifacts
+end_time: 1743496922259
+entry_point_name: ''
+experiment_id: '637476374855912034'
+lifecycle_stage: active
+run_id: 9142104fbb464721b4461ac9836f054e
+run_name: gaudy-midge-980
+run_uuid: 9142104fbb464721b4461ac9836f054e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1743496921356
+status: 3
+tags: []
+user_id: sandeepkumar

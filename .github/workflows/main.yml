@@ -52,7 +52,7 @@ jobs:
         DEPLOY_HOOK: ${{ secrets.RENDER_DEPLOY_HOOK }}
       run: |
         if [ -z "$DEPLOY_HOOK" ]; then
-          echo "🔒 RENDER_DEPLOY_HOOK not set — skipping deploy."
+          echo " RENDER_DEPLOY_HOOK not set — skipping deploy."
         else
           curl -X POST $DEPLOY_HOOK
           echo "Deployment triggered on Render"
